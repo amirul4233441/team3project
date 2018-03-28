@@ -1,28 +1,11 @@
-snake
-=====
+A clone of the game created by user xurxodiz on GitHub. This clone is being enhanced by Amirul and Toushik for our Project development class
 
-A simple terminal based snake game written in c with ncurses. Uses vim style 'hjkl' to move around (or the arrow keys if you please).
+Below are quotes from user xurxodiz
 
-### Screenshot
-
-![screenshot](https://raw.githubusercontent.com/mnisjk/snake/master/screenshot.png)
-
-### How to compile & run
-
-```
-gcc -I/usr/include/ -osnake snake.c -lncurses
-./snake
-```
-
-### Dependencies
-
-snake.c relies on ncurses to draw to the terminal. To install on Ubuntu/Debian, use:
-
-```
-sudo apt-get install lib32ncurses5-dev
-```
-
-
-### License
-
-Use, copy and/or distribute in any way you want.
+>A simple clone of the snake game, developed as my first attempt at using `canvas` and Javascript.
+>
+>It was originally intended for the [0hgame jam](http://0hgame.eu), but couldn't make it on time. 
+>
+>You can try it [live](http://diz.es/snake).
+>
+>Thankful mention to [Bill Mill's tutorial](http://billmill.org/static/canvastutorial/), my starting point.
