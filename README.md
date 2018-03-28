@@ -1,4 +1,4 @@
-A clone of the game created by user xurxodiz on GitHub. This clone is being enhanced by Amirul and Toushik for our Project development class
+An update to the game created by user xurxodiz on GitHub. This clone is being enhanced by Amirul and Toushik for our Project development class
 
 Below are quotes from user xurxodiz
 
