@@ -6,6 +6,8 @@ var dx = 20;
 var dy = 20;
 var dr = 10;
 
+var diff;
+
 // 0: left
 // 1: up
 // 2: right
@@ -25,6 +27,16 @@ var food;
 
 var id;
 
+function diffSet(dif) {
+  if (dif == 1) {
+    diff = 140;
+  } else if (dif == 2) {
+    diff = 100;
+  } else if (dif == 3) {
+    diff = 75;
+  }
+}
+
 function init() {
   ctx = $('#canvas')[0].getContext("2d");
   WIDTH = $("#canvas").width();
@@ -35,8 +47,8 @@ function init() {
 
   direction = 0;
   size = 1;
-
-  id = setInterval(step, 100);
+  diffSet(dif);
+  id = setInterval(step, diff);
 }
 
 function onKeyDown(evt) {
