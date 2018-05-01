@@ -18,7 +18,15 @@ $( document ).ready(function() {
       dif = 3;
       gameStarted = true;
       gamerun();  
-    }  else {
+    } else if (gameStarted == false && e.keyCode == 52) {
+      dif = 4;
+      gameStarted = true;
+      gamerun();  
+    } else if (gameStarted == false && e.keyCode == 53) {
+      dif = 5;
+      gameStarted = true;
+      gamerun();  
+    } else {
      
     } 
   }
@@ -57,7 +65,7 @@ function showIntro() {
     ctx.fillText("SNAKE", canvas.width/2, canvas.height/2);
 
     ctx.font="20px Arial";
-    ctx.fillText("press 1, 2 or 3 to start", canvas.width/2, canvas.height/2+40);
+    ctx.fillText("press number between 1-5 to start", canvas.width/2, canvas.height/2+40);
 }
 
 function showConclusion(score) {
@@ -70,5 +78,5 @@ function showConclusion(score) {
     ctx.fillText("GAME OVER", canvas.width/2, canvas.height/2);
     ctx.fillText("score: " + score, canvas.width/2, canvas.height/2-40);
     ctx.font="20px Arial";
-    ctx.fillText("press 1, 2 or 3 to start", canvas.width/2, canvas.height/2+80);
+    ctx.fillText("press number between 1-5 to start", canvas.width/2, canvas.height/2+80);
 }

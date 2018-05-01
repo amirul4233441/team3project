@@ -1,10 +1,12 @@
 var ctx;
 var WIDTH;
 var HEIGHT;
+var clr = "#FFFFFF";
 
 var dx = 20;
 var dy = 20;
 var dr = 10;
+var i;
 
 var diff;
 
@@ -33,6 +35,10 @@ function diffSet(dif) {
   } else if (dif == 2) {
     diff = 100;
   } else if (dif == 3) {
+    diff = 75;
+  } else if (dif == 4) {
+    diff = 45;
+  } else if (dif == 5) {
     diff = 75;
   }
 }
@@ -145,15 +151,23 @@ function movesnake() {
   snake.unshift(n);
 
   // if there's food there
-  if (meal(n)) {
-    sndEat.play();
-    newfood(); // we eat it and another shows up
-    
-  } else {
-    snake.pop();
-    // we only remove the tail if there wasn't food
-    // if there was food, the snake grew
-  }
+    if (dif == 1 || dif == 2 || dif == 3 || dif == 4) {
+      if (meal(n)) {
+        sndEat.play();
+        newfood(); // we eat it and another shows up
+      
+      } else {
+        snake.pop();
+      }
+    } else if (dif == 5) {
+      if (meal(n)) {
+        sndEat.play();
+        newfood(); // we eat it and another shows up  
+      } else {
+        
+        
+      }    
+    }
 
   return true;
 
@@ -187,7 +201,7 @@ function screenclear() {
 }
 
 function drawsnake() {
-  ctx.fillStyle = "#FFFFFF";
+  ctx.fillStyle = clr;
   snake.forEach(function(p) {
     rect(p.x, p.y, dx, dy);
   })
