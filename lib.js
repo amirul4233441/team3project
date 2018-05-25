@@ -52,7 +52,7 @@ function init() {
   newfood();
 
   direction = 0;
-  size = 1;
+  size = 0;
   diffSet(dif);
   id = setInterval(step, diff);
 }
@@ -110,8 +110,24 @@ function newfood() {
   food.x = randomx * dx;
   food.y = randomy * dy;
   food.r = dr;
-  size = size+1;
+  size = size+200;
 }
+function bonusfood() {
+  var wcells = WIDTH/dx;
+  var hcells = HEIGHT/dy;
+
+  var randomx = Math.floor(Math.random()*wcells);
+  var randomy = Math.floor(Math.random()*hcells);
+
+  food = Array();
+  food.x = randomx * dx;
+  food.y = randomy * dy;
+  food.r = dr+10;
+  size = size+1000;
+}
+
+
+
 
 function meal(n) {
   return (n.x == food.x && n.y == food.y);
@@ -154,18 +170,24 @@ function movesnake() {
     if (dif == 1 || dif == 2 || dif == 3 || dif == 4) {
       if (meal(n)) {
         sndEat.play();
-        newfood(); // we eat it and another shows up
+		if(size == 800 ){
+		bonusfood();
+		}
+		else
+		newfood();
       
       } else {
         snake.pop();
       }
     } else if (dif == 5) {
-      if (meal(n)) {
+      
+	  if (meal(n)) {
         sndEat.play();
-        newfood(); // we eat it and another shows up  
-      } else {
+		
+      } 
+	  else {
         
-        
+              
       }    
     }
 
@@ -207,7 +229,11 @@ function drawsnake() {
   })
 }
 
-function drawfood() {
-  ctx.fillStyle = "#FF0000";
+function drawfoodRED() {
+  ctx.fillStyle = "#F0000F";
+  circle(food.x+food.r, food.y+food.r, food.r);
+}
+function drawfoodYELLOW() {
+  ctx.fillStyle = "#FFFF00";
   circle(food.x+food.r, food.y+food.r, food.r);
 }
